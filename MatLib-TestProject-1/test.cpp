@@ -223,8 +223,8 @@ namespace MatrixTests {
 
     TEST(Lab2, Inicjalizacja) {
         Matrix A(1, 2, 3.0);
-        EXPECT_TRUE(A(0, 0) = 3.0);
-        EXPECT_TRUE(A(0, 1) = 3.0);
+        EXPECT_TRUE(A(0, 0) == 3.0);
+        EXPECT_TRUE(A(0, 1) == 3.0);
     }
 
     TEST(Lab2, Wyznacznik) {
@@ -233,6 +233,13 @@ namespace MatrixTests {
         std::initializer_list<std::initializer_list<double>> lista = { {1.0, 2.0}, {3.0, 4.0} };
         Matrix A(lista);
         EXPECT_EQ(A.Det(), -2);
+    }
+
+    TEST(Lab2, Destruktor) {
+        Matrix* A = new Matrix(2,2);
+        EXPECT_FALSE(A == nullptr);
+        delete A;
+        EXPECT_TRUE(A == nullptr);
     }
 
 
